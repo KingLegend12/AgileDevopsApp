@@ -5,7 +5,24 @@
     "subject": "PROBLEME",
     "status": "En attente",
     "color": "red",
-    "addedAt": "2021-12-12"
+    "addedAt": "2021-12-12",
+    "history": [
+      {
+        "date": "20-10-10",
+        "message": "sjflsjl",
+        "messageBy": "client"
+      },
+      {
+        "date": "20-10-10",
+        "message": "sjflsjl",
+        "messageBy": "operator"
+      },
+      {
+        "date": "20-10-10",
+        "message": "sjflsjl",
+        "messageBy": "client"
+      }
+    ]
   },
   {
     "id": 2,
