@@ -8,7 +8,7 @@
   background-color: #04aa6d;
   border: none;
   border-radius: 15px;
-  box-shadow: 0 9px violet;
+  box-shadow: 0 9px rgb(185, 55, 8);
 }
 /*body {
   background-image: url("https://s1.1zoom.me/big0/903/349893-admin.jpg");
@@ -33,7 +33,7 @@ body {
 
 .HeaderBTN:active {
   /*background-color: black;*/
-  box-shadow: 0 0 5px #ffff00, 0 0 20px rgb(255 255 0 / 0.8),
+  box-shadow: 0 0 5px orangered, 0 0 20px rgb(255 255 0 / 0.8),
     0 0 35px rgb(255 255 0 / 0.7), 0 0 50px rgb(255 255 0 / 0.6);
   border-color: #fff;
 

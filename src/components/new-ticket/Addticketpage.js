@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { PageBreadcrumb } from "../breadcrumb/Breadcrumb.comp";
 import { AddTicketForm } from "../add-ticket-from/AddTicketForm.comp";
-
+//import { shortText } from "../../utils/validation";
 //import { shortText } from "../../utils/validation";
 
 const initialFrmDt = {
