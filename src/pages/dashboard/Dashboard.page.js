@@ -2,12 +2,23 @@ import React from "react";
 import { Col, Row, Button, Container } from "react-bootstrap";
 import { TicketTable } from "../../components/Ticket-table/TicketTable.comp";
 import tickets from "../../assets/data/dummy-tickets.json";
+import { PageBreadcrumb } from "../../components/breadcrumb/Breadcrumb.comp";
 export const Dashboard = () => {
   return (
     <Container>
+        <hr/>
+        
+      <Row>
+        <Col>
+          <PageBreadcrumb page="Dashboard" />
+        </Col>
+      </Row>
       <Row>
         <Col className="text-center mt-5 mb-2">
-          <Button variant="info" style={{ "font-size": "2rem" }}>
+          <Button
+            variant="success"
+            style={{ "font-size": "2rem", "border-radius": "2rem" }}
+          >
             Ajouter un Ticket
           </Button>
         </Col>

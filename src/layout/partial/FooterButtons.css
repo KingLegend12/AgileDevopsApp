@@ -18,8 +18,7 @@
   background-size: cover;
 }*/
 body {
-  background: url("https://www.powerplant-expo.com/wp-content/uploads/2019/03/offshore-onshore-pple.jpg")
-    no-repeat center center fixed;
+  background: url("../../assets/img/EOY.jpeg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
