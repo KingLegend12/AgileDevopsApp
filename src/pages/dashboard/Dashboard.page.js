@@ -3,11 +3,12 @@ import { Col, Row, Button, Container } from "react-bootstrap";
 import { TicketTable } from "../../components/Ticket-table/TicketTable.comp";
 import tickets from "../../assets/data/dummy-tickets.json";
 import { PageBreadcrumb } from "../../components/breadcrumb/Breadcrumb.comp";
+import { Link } from "react-router-dom";
 export const Dashboard = () => {
   return (
     <Container>
-        <hr/>
-        
+      <hr />
+
       <Row>
         <Col>
           <PageBreadcrumb page="Dashboard" />
@@ -15,12 +16,18 @@ export const Dashboard = () => {
       </Row>
       <Row>
         <Col className="text-center mt-5 mb-2">
-          <Button
-            variant="success"
-            style={{ "font-size": "2rem", "border-radius": "2rem" }}
-          >
-            Ajouter un Ticket
-          </Button>
+          <Link to="/add-ticket">
+            <Button
+              className="HeaderBTN"
+              variant="success"
+              style={{
+                "font-size": "2rem",
+                "border-radius": "2rem",
+              }}
+            >
+              Ajouter un Ticket
+            </Button>
+          </Link>
         </Col>
       </Row>
       <Row>
@@ -35,7 +42,6 @@ export const Dashboard = () => {
       <hr />
       <Row>
         <Col className="recent-ticket">
-          {" "}
           <TicketTable tickets={tickets} />
         </Col>
       </Row>

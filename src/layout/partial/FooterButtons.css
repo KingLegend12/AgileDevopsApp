@@ -30,7 +30,14 @@ body {
 
   border-color: black;
 }
+.navbar-fixed-top {
+  top: -70px;
+}
 
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+  position: relative;
+}
 .HeaderBTN:active {
   /*background-color: black;*/
   box-shadow: 0 0 5px orangered, 0 0 20px rgb(255 255 0 / 0.8),
