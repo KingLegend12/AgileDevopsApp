@@ -28,7 +28,7 @@ export const ResetPassword = ({
               />
             </Form.Group>
 
-            <Button type="submit">Se connecter</Button>
+            <Button type="submit">Envoyer le code</Button>
           </Form>
           <hr />
         </Col>

@@ -1,7 +1,30 @@
 import React from "react";
+import { BoxLoading, WindMillLoading } from "react-loadingg";
 import { Table, Container, Col } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-export const TicketTable = ({ tickets }) => {
+export const TicketTable = () => {
+  const { searchTicketList, isLoading, error } = useSelector(
+    (state) => state.tickets
+  );
+  if (isLoading)
+    return (
+      <div>
+        <WindMillLoading />
+        <h3
+          style={{
+            "text-align": "center",
+            "margin-top": "150px",
+            color: "cyan",
+          }}
+        >
+          Loading...
+        </h3>
+      </div>
+    );
+
+  if (error) return <h3>{error}</h3>;
+
   return (
     <Container>
       <Table className="table table-striped table-dark">
@@ -15,16 +38,27 @@ export const TicketTable = ({ tickets }) => {
           </tr>
         </thead>
         <tbody>
-          {tickets.length ? (
-            tickets.map((row) => (
+          {searchTicketList.length ? (
+            searchTicketList.map((row) => (
               <tr>
-                <td>{row.id}</td>
+                <td>{row._id}</td>
                 <td>
-                  <Link to={`/ticket/${row.id}`}>{row.subject}</Link>
+                  <Link to={`/ticket/${row._id}`}>{row.subject}</Link>
                 </td>
                 <td>{row.status}</td>
-                <td style={{ backgroundColor: row.color }}>{row.priority}</td>
-                <td>{row.addedAt}</td>
+                <td
+                  style={{
+                    backgroundColor:
+                      row.priority == "Elevée"
+                        ? "red"
+                        : row.priority == "Moyenne"
+                        ? "orange"
+                        : "green",
+                  }}
+                >
+                  {row.priority}
+                </td>
+                <td>{row.openAt}</td>
               </tr>
             ))
           ) : (

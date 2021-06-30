@@ -42,7 +42,7 @@ export const Ticket = () => {
           <div className="priority">Priorite {ticket.priority}</div>
         </Col>
         <Col className="text-right">
-          <Button variant="outline-info">Close Tickets</Button>
+          <Button variant="outline-info">Fermer le ticket</Button>
         </Col>
       </Row>
       <Row className="mt-4">
