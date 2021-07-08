@@ -8,6 +8,7 @@ import { TicketLists } from "./pages/ticket-lists/TicketLists.page";
 import { Ticket } from "./pages/ticket/Ticket.page";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { PrivateRoute } from "./components/private-route/PrivateRoute.comp";
+import { Registration } from "./pages/registration/Registration.page";
 function App() {
   return (
     <div className="App">
@@ -16,7 +17,9 @@ function App() {
           <Route exact path="/">
             <Entry />
           </Route>
-
+          <Route exact path="/registration">
+            <Registration />
+          </Route>
           <PrivateRoute path="/dashboard">
             <Dashboard />
           </PrivateRoute>

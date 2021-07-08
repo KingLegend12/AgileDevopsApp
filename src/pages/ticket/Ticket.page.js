@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 import { fetchSingleTicket, closeTicket } from "../ticket-lists/ticketsAction";
 import { useDispatch, useSelector } from "react-redux";
 import { Header } from "../../layout/partial/Header.comp";
+import { resetResponseMsg } from "../ticket-lists/ticketSlice";
 //const ticket = tickets[0];
 export const Ticket = () => {
   const { tId } = useParams();
@@ -31,7 +32,11 @@ export const Ticket = () => {
     } */
     }
     dispatch(fetchSingleTicket(tId));
-  }, [message, tId, dispatch]);
+
+    return () => {
+      (replyMsg || replyTicketError) && dispatch(resetResponseMsg());
+    };
+  }, [message, tId, dispatch, replyMsg, replyTicketError]);
   const handleOnChange = (e) => {
     setMessage(e.target.value);
   };

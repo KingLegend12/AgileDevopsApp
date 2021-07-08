@@ -104,6 +104,11 @@ export const LoginForm = ({ frmSwitcher }) => {
           </a>
         </Col>
       </Row>
+      <Row className="py-4">
+        <Col>
+          <a href="/registration">Créer un compte</a>
+        </Col>
+      </Row>
     </Container>
   );
 };

@@ -15,6 +15,7 @@ import { shortText } from "../../utils/validation";
 import "./add-ticket-form.style.css";
 import { useDispatch, useSelector } from "react-redux";
 import { openNewTicket } from "./add-ticketAction";
+import { restSuccessMSg } from "./add-ticketSlicer";
 const initialFrmDt = {
   subject: "",
   issueDate: "",
@@ -30,8 +31,12 @@ export const AddTicketForm = () => {
   const [frmData, setFrmData] = useState(initialFrmDt);
   const [frmDataError, setFrmDataError] = useState(initialFrmError);
   const [cmbvalue, setcmbValue] = useState("Selectioner");
-  useEffect(() => {}, [frmData, frmDataError]);
+
   const dispatch = useDispatch();
+  useEffect(() => {
+    successMsg && dispatch(restSuccessMSg());
+  }, [dispatch, frmData, frmDataError]);
+
   const { isLoading, error, successMsg } = useSelector(
     (state) => state.openTicket
   );
@@ -64,6 +69,7 @@ export const AddTicketForm = () => {
     dispatch(openNewTicket({ ...frmData, sender: name, priority: cmbvalue }));
     //console.log("Form submit request received", frmData);
   };
+
   return (
     <Jumbotron style={{ background: "none" }} className="mt-3 add-new-ticket">
       <h1 className="text-center">Ajouter un Nouveau Ticket</h1>
