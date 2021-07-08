@@ -26,7 +26,7 @@ export const TicketLists = () => {
       <Row className="mt-4">
         <Col>
           <Link to="/add-ticket">
-            <Button variant="info">Ajouter une nouveau Ticket</Button>
+            <Button variant="info">Ajouter un nouveau Ticket</Button>
           </Link>
         </Col>
         <Col className="text-right">

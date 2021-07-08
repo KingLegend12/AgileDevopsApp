@@ -58,7 +58,7 @@ export const TicketTable = () => {
                 >
                   {row.priority}
                 </td>
-                <td>{row.openAt}</td>
+                <td>{row.openAt && new Date(row.openAt).toLocaleString()}</td>
               </tr>
             ))
           ) : (

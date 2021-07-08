@@ -14,8 +14,10 @@ export const MessageHistory = ({ msg }) => {
           padding: "1rem",
         }}
       >
-        <div className="sender">{row.messageBy}</div>
-        <div className="date">{row.date}</div>
+        <div className="sender">{row.sender}</div>
+        <div className="date">
+          {row.msgAt && new Date(row.msgAt).toLocaleString()}
+        </div>
       </div>
       <div className="message"> {row.message}</div>
     </div>
