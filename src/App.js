@@ -9,6 +9,7 @@ import { Ticket } from "./pages/ticket/Ticket.page";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { PrivateRoute } from "./components/private-route/PrivateRoute.comp";
 import { Registration } from "./pages/registration/Registration.page";
+import { UserVerification } from "./pages/verification/UserVerification.page";
 function App() {
   return (
     <div className="App">
@@ -19,6 +20,9 @@ function App() {
           </Route>
           <Route exact path="/registration">
             <Registration />
+          </Route>
+          <Route exact path="/verification/:_id/:email">
+            <UserVerification />
           </Route>
           <PrivateRoute path="/dashboard">
             <Dashboard />

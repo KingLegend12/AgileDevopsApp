@@ -31,6 +31,7 @@ export const AddTicketForm = () => {
   const [frmData, setFrmData] = useState(initialFrmDt);
   const [frmDataError, setFrmDataError] = useState(initialFrmError);
   const [cmbvalue, setcmbValue] = useState("Selectioner");
+  const [typevalue, settypeValue] = useState("Selectioner");
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -47,6 +48,10 @@ export const AddTicketForm = () => {
   const handleSelect = (e) => {
     console.log(e);
     setcmbValue(e);
+  };
+  const handleSelect2 = (e) => {
+    console.log(e);
+    settypeValue(e);
   };
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -66,7 +71,14 @@ export const AddTicketForm = () => {
       ...initialFrmError,
       subject: !isSubjectValid,
     });
-    dispatch(openNewTicket({ ...frmData, sender: name, priority: cmbvalue }));
+    dispatch(
+      openNewTicket({
+        ...frmData,
+        sender: name,
+        priority: cmbvalue,
+        speciality: typevalue,
+      })
+    );
     //console.log("Form submit request received", frmData);
   };
 
@@ -143,6 +155,21 @@ export const AddTicketForm = () => {
             >
               Basse
             </Dropdown.Item>
+          </DropdownButton>
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Type:</Form.Label>
+          <DropdownButton
+            alignRight
+            title={typevalue}
+            value={typevalue}
+            id="dropdown-menu-align-right"
+            onSelect={handleSelect2}
+            required
+          >
+            <Dropdown.Item eventKey="Pedagogique">Pedagogique</Dropdown.Item>
+            <Dropdown.Item eventKey="Technique">Technique</Dropdown.Item>
+            <Dropdown.Item eventKey="Réseau">Réseau</Dropdown.Item>
           </DropdownButton>
         </Form.Group>
         <Button type="submit" variant="info">
