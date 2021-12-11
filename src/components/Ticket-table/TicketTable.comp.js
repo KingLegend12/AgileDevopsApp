@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BoxLoading, WindMillLoading } from "react-loadingg";
 import { Table, Container, Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import paginationFactory from "react-bootstrap-table2-paginator";
+import BootstrapTable from "react-bootstrap-table-next";
+import { fetchAllTickets } from "../../pages/ticket-lists/ticketsAction";
+import { useDispatch } from "react-redux";
+
 export const TicketTable = () => {
+  const dispatch = useDispatch();
   const { searchTicketList, isLoading, error } = useSelector(
     (state) => state.tickets
   );
+  useEffect(() => {
+    dispatch(fetchAllTickets());
+  }, [dispatch]);
+  const data = searchTicketList;
   if (isLoading)
     return (
       <div>
@@ -25,9 +35,42 @@ export const TicketTable = () => {
 
   if (error) return <h3>{error}</h3>;
 
+  const columns = [
+    {
+      dataField: "_id",
+      text: "Identifiant du ticket",
+    },
+    {
+      dataField: "subject",
+      text: "Sujet",
+      formatter: (cell, row, rowIndex, extraData) => (
+        <Link to={`/ticket/${row._id}`}>{row.subject}</Link>
+      ),
+    },
+    { dataField: "status", text: "Status" },
+    {
+      dataField: "priority",
+      text: "Priorité",
+      style: (cell, row, rowIndex, colIndex) => {
+        if (cell === "Elevée") {
+          return {
+            backgroundColor: "red",
+          };
+        } else if (cell === "Moyenne") {
+          return {
+            backgroundColor: "orange",
+          };
+        }
+        return {
+          backgroundColor: "green",
+        };
+      },
+    },
+    { dataField: "openAt", text: "Date d'ouverture" },
+  ];
   return (
     <Container>
-      <Table className="table table-striped table-dark">
+      {/*<Table className="table table-striped table-dark" hover>
         <thead>
           <tr>
             <th>Identifiant du ticket</th>
@@ -69,7 +112,16 @@ export const TicketTable = () => {
             </tr>
           )}
         </tbody>
-      </Table>
+          </Table> */}
+      <BootstrapTable
+        classes="table table-striped table-dark"
+        hover
+        keyField="id"
+        data={data}
+        columns={columns}
+        responsive
+        pagination={paginationFactory()}
+      />
     </Container>
   );
 };

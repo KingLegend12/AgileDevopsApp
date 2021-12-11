@@ -80,7 +80,7 @@ export const Ticket = () => {
             <Button
               variant="outline-info"
               onClick={() => dispatch(closeTicket(tId))}
-              disabled={selectedTicket.status === "Closed"}
+              disabled={selectedTicket.status === "Fermer"}
             >
               Fermer le ticket
             </Button>

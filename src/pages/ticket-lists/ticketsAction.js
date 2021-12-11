@@ -31,7 +31,7 @@ export const fetchAllTickets = () => async (dispatch) => {
     if (!result.data.result) {
       dispatch(fetchTicketFail({ message: "error couldn't load" }));
     }
-    console.log(result);
+    //console.log(result);
   } catch (error) {
     dispatch(fetchTicketFail(error.message));
   }
