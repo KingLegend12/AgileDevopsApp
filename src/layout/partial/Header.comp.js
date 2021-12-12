@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar, Nav, Button } from "react-bootstrap";
-import logo from "../../assets/img/ONEE.jpeg";
+import logo from "../../assets/img/dev.png";
 import "./FooterButtons.css";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
